@@ -21,6 +21,10 @@ Route::get('/products', function () {
     return view('products');
 })->name('products');
 
+Route::get('/education', function () {
+    return view('education');
+})->name('education');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
