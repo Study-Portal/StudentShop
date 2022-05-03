@@ -121,7 +121,7 @@
                                     </div>
                                     <a href="#" class="mt-6 block text-sm font-medium text-gray-900">
                                         <span class="absolute z-10 inset-0" aria-hidden="true"></span>
-                                        Basic Tees
+                                        Productivity
                                     </a>
                                     <p aria-hidden="true" class="mt-1 text-sm text-gray-500">Shop now</p>
                                 </div>
@@ -143,7 +143,7 @@
                                     </div>
                                     <a href="#" class="mt-6 block text-sm font-medium text-gray-900">
                                         <span class="absolute z-10 inset-0" aria-hidden="true"></span>
-                                        Carry
+                                        Stationary
                                     </a>
                                     <p aria-hidden="true" class="mt-1 text-sm text-gray-500">Shop now</p>
                                 </div>
@@ -231,7 +231,7 @@
                                                                         <div class="aspect-w-1 aspect-h-1 rounded-md bg-gray-100 overflow-hidden group-hover:opacity-75">
                                                                             <img src="https://tailwindui.com/img/ecommerce-images/mega-menu-category-01.jpg" alt="Models sitting back to back, wearing Basic Tee in black and bone." class="object-center object-cover">
                                                                         </div>
-                                                                        <a href="#" class="mt-4 block font-medium text-gray-900">
+                                                                        <a href="{{route('products')}}" class="mt-4 block font-medium text-gray-900">
                                                                             <span class="absolute z-10 inset-0" aria-hidden="true"></span>
                                                                             New Arrivals
                                                                         </a>
@@ -244,7 +244,7 @@
                                                                         </div>
                                                                         <a href="#" class="mt-4 block font-medium text-gray-900">
                                                                             <span class="absolute z-10 inset-0" aria-hidden="true"></span>
-                                                                            Basic Tees
+                                                                            Productivity
                                                                         </a>
                                                                         <p aria-hidden="true" class="mt-1">Shop now</p>
                                                                     </div>
@@ -266,7 +266,7 @@
                                                                         </div>
                                                                         <a href="#" class="mt-4 block font-medium text-gray-900">
                                                                             <span class="absolute z-10 inset-0" aria-hidden="true"></span>
-                                                                            Carry
+                                                                            Stationary
                                                                         </a>
                                                                         <p aria-hidden="true" class="mt-1">Shop now</p>
                                                                     </div>
