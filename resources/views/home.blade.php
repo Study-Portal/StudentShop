@@ -413,8 +413,8 @@
 
             <div class="relative max-w-3xl mx-auto py-32 px-6 flex flex-col items-center text-center sm:py-64 lg:px-0">
                 <h1 class="text-4xl font-extrabold tracking-tight text-white lg:text-6xl">Introducing Student Shop</h1>
-                <p class="mt-4 text-xl text-white">The new arrivals have, well, newly arrived. Check out the latest options from our summer small-batch release while they're still in stock.</p>
-                <a href="#" class="mt-8 inline-block bg-white border border-transparent rounded-md py-3 px-8 text-base font-medium text-gray-900 hover:bg-gray-100">Shop New Arrivals</a>
+                <p class="mt-4 text-xl text-white">Enabling students to buy the things they need during education for a price that works for everyone.</p>
+                <a href="#" class="mt-8 inline-block bg-white border border-transparent rounded-md py-3 px-8 text-base font-medium text-gray-900 hover:bg-gray-100">Shop for anything</a>
             </div>
         </div>
 
