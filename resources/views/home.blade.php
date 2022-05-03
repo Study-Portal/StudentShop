@@ -41,19 +41,19 @@
                     </div>
 
                     <!-- Links -->
-                    <div class="mt-2">
+                    <div class="mt-2" x-data="{women: false, men: false}">
                         <div class="border-b border-gray-200">
                             <div class="-mb-px flex px-4 space-x-8" aria-orientation="horizontal" role="tablist">
                                 <!-- Selected: "text-indigo-600 border-indigo-600", Not Selected: "text-gray-900 border-transparent" -->
-                                <button id="tabs-1-tab-1" class="text-gray-900 border-transparent flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium" aria-controls="tabs-1-panel-1" role="tab" type="button">Women</button>
+                                <button @click="women = true; men = false" id="tabs-1-tab-1" class="text-gray-900 border-transparent flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium" aria-controls="tabs-1-panel-1" role="tab" type="button">Women</button>
 
                                 <!-- Selected: "text-indigo-600 border-indigo-600", Not Selected: "text-gray-900 border-transparent" -->
-                                <button id="tabs-1-tab-2" class="text-gray-900 border-transparent flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium" aria-controls="tabs-1-panel-2" role="tab" type="button">Men</button>
+                                <button @click="men = true; women = false" id="tabs-1-tab-2" class="text-gray-900 border-transparent flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium" aria-controls="tabs-1-panel-2" role="tab" type="button">Men</button>
                             </div>
                         </div>
 
                         <!-- 'Women' tab panel, show/hide based on tab state. -->
-                        <div id="tabs-1-panel-1" class="px-4 py-6 space-y-12" aria-labelledby="tabs-1-tab-1" role="tabpanel" tabindex="0">
+                        <div x-show="women" x-cloak id="tabs-1-panel-1" class="px-4 py-6 space-y-12" aria-labelledby="tabs-1-tab-1" role="tabpanel" tabindex="0">
                             <div class="grid grid-cols-2 gap-x-4 gap-y-10">
                                 <div class="group relative">
                                     <div class="aspect-w-1 aspect-h-1 rounded-md bg-gray-100 overflow-hidden group-hover:opacity-75">
@@ -102,7 +102,7 @@
                         </div>
 
                         <!-- 'Men' tab panel, show/hide based on tab state. -->
-                        <div id="tabs-1-panel-2" class="px-4 py-6 space-y-12" aria-labelledby="tabs-1-tab-2" role="tabpanel" tabindex="0">
+                        <div x-show="men" x-cloak id="tabs-1-panel-2" class="px-4 py-6 space-y-12" aria-labelledby="tabs-1-tab-2" role="tabpanel" tabindex="0">
                             <div class="grid grid-cols-2 gap-x-4 gap-y-10">
                                 <div class="group relative">
                                     <div class="aspect-w-1 aspect-h-1 rounded-md bg-gray-100 overflow-hidden group-hover:opacity-75">
@@ -259,13 +259,13 @@
                                         </a>
                                     </div>
 
-                                    <div class="hidden h-full lg:flex">
+                                    <div class="hidden h-full lg:flex" x-data="{men: false, women: false}">
                                         <!-- Flyout menus -->
                                         <div class="px-4 bottom-0 inset-x-0">
                                             <div class="h-full flex justify-center space-x-8">
                                                 <div class="flex">
                                                     <div class="relative flex">
-                                                        <button type="button" class="relative z-10 flex items-center justify-center transition-colors ease-out duration-200 text-sm font-medium text-white" aria-expanded="false">
+                                                        <button @click="women = true; men = false" @click.away="women = false" type="button" class="relative z-10 flex items-center justify-center transition-colors ease-out duration-200 text-sm font-medium text-white" aria-expanded="false">
                                                             Women
                                                             <!-- Open: "bg-white", Closed: "" -->
                                                             <span class="absolute -bottom-px inset-x-0 h-0.5 transition ease-out duration-200" aria-hidden="true"></span>
@@ -282,7 +282,7 @@
                                                         From: "opacity-100"
                                                         To: "opacity-0"
                                                     -->
-                                                    <div class="absolute top-full inset-x-0 text-sm text-gray-500">
+                                                    <div x-show="women" x-cloak class="absolute top-full inset-x-0 text-sm text-gray-500">
                                                         <!-- Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow -->
                                                         <div class="absolute inset-0 top-1/2 bg-white shadow" aria-hidden="true"></div>
 
@@ -340,7 +340,7 @@
 
                                                 <div class="flex">
                                                     <div class="relative flex">
-                                                        <button type="button" class="relative z-10 flex items-center justify-center transition-colors ease-out duration-200 text-sm font-medium text-white" aria-expanded="false">
+                                                        <button @click="men = true; women = false" @click.away="men = false" type="button" class="relative z-10 flex items-center justify-center transition-colors ease-out duration-200 text-sm font-medium text-white" aria-expanded="false">
                                                             Men
                                                             <!-- Open: "bg-white", Closed: "" -->
                                                             <span class="absolute -bottom-px inset-x-0 h-0.5 transition ease-out duration-200" aria-hidden="true"></span>
@@ -357,7 +357,7 @@
                                                         From: "opacity-100"
                                                         To: "opacity-0"
                                                     -->
-                                                    <div class="absolute top-full inset-x-0 text-sm text-gray-500">
+                                                    <div x-show="men" x-cloak class="absolute top-full inset-x-0 text-sm text-gray-500">
                                                         <!-- Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow -->
                                                         <div class="absolute inset-0 top-1/2 bg-white shadow" aria-hidden="true"></div>
 
