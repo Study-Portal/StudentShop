@@ -386,7 +386,9 @@
                                     </a>
 
                                     <div class="flex-1 flex items-center justify-end">
-                                        <x-button href="{{route('login')}}" class="hidden text-sm font-medium text-white lg:block"> Login / Register </x-button>
+                                        <a href="{{route('login')}}">
+                                            <x-button class="hidden text-sm font-medium text-white lg:block"> Login / Register </x-button>
+                                        </a>
 
                                         <div class="flex items-center lg:ml-8">
                                             <!-- Cart -->
@@ -416,4 +418,5 @@
                 <p class="mt-4 text-xl text-white">The first stage of any kind of success is effective education for all.</p>
             </div>
         </div>
+    </div>
 </x-guest-layout>
