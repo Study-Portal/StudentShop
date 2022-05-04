@@ -26,6 +26,7 @@ class ProductFactory extends Factory
             'image' => $this->faker->imageUrl(1000, 1000),
             'colour' => $this->faker->colorName(),
             'size' => $this->faker->randomNumber(),
+            'slug' => $this->faker->slug(),
             'price' => $this->faker->randomNumber(),
             'category_id' => Category::query()->get('id')->random()
         ];

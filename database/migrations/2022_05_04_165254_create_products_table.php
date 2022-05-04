@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('colour')->nullable(true);
             $table->text('size')->nullable(true);
             $table->integer('price');
+            $table->text('slug');
             $table->integer('category_id');
             $table->timestamps();
         });

@@ -22,6 +22,8 @@ Route::get('/products', [Product::class, 'all'])
     ->middleware('web')
     ->name('products');
 
+//Route::get('/products/{slug}',)
+
 Route::get('/education', function () {
     return view('education');
 })->name('education');
