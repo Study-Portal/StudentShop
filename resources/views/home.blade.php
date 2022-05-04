@@ -661,7 +661,7 @@
                 </div>
 
                 <div class="border-t border-gray-800 py-10">
-                    <p class="text-sm text-gray-400">Copyright &copy; 2021 Clothing Company Inc.</p>
+                    <p class="text-sm text-gray-400">Copyright &copy; {{now()->year}} Study Portal Ecosystem</p>
                 </div>
             </div>
         </footer>
