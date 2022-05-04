@@ -12,4 +12,11 @@ class Product extends Controller
             'products' => \App\Models\Product::query()->orderByDesc('products.created_at')->get()
         ]);
     }
+
+    public function prod($slug)
+    {
+        return view('product', [
+            'pro' => \App\Models\Product::query()->where('products.slug', $slug)->get()
+        ]);
+    }
 }

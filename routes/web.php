@@ -22,7 +22,9 @@ Route::get('/products', [Product::class, 'all'])
     ->middleware('web')
     ->name('products');
 
-//Route::get('/products/{slug}',)
+Route::get('/products/{slug}', [Product::class, 'prod'])
+    ->middleware('web')
+    ->name('product');
 
 Route::get('/education', function () {
     return view('education');

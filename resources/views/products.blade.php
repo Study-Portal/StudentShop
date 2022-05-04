@@ -627,7 +627,7 @@
                         </div>
                         <div class="pt-10 pb-4 text-center">
                             <h3 class="text-sm font-medium text-gray-900">
-                                <a href="#">
+                                <a href="{{route('product', $p->slug)}}">
                                     <span aria-hidden="true" class="absolute inset-0"></span>
                                     {{$p->name}}
                                 </a>
