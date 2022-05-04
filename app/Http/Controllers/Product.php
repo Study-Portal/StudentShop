@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class Product extends Controller
 {
@@ -16,7 +17,7 @@ class Product extends Controller
     public function prod($slug)
     {
         return view('product', [
-            'pro' => \App\Models\Product::query()->where('products.slug', $slug)->get()
+            'prod' => \App\Models\Product::query()->where('products.slug', $slug)->get('*')
         ]);
     }
 }
