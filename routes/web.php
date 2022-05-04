@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Product;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,9 +18,9 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-Route::get('/products', function () {
-    return view('products');
-})->name('products');
+Route::get('/products', [Product::class, 'all'])
+    ->middleware('web')
+    ->name('products');
 
 Route::get('/education', function () {
     return view('education');
