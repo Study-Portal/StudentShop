@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Cart;
 use App\Http\Controllers\Product;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,10 @@ Route::get('/products', [Product::class, 'all'])
 Route::get('/product/{slug}', [Product::class, 'prod'])
     ->middleware('web')
     ->name('product');
+
+Route::get('/cart', [Cart::class, 'view'])
+    ->middleware('auth')
+    ->name('cart');
 
 Route::get('/education', function () {
     return view('education');

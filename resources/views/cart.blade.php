@@ -121,7 +121,7 @@
                                     </div>
                                     <a href="#" class="mt-6 block text-sm font-medium text-gray-900">
                                         <span class="absolute z-10 inset-0" aria-hidden="true"></span>
-                                        Basic Tees
+                                        Productivity
                                     </a>
                                     <p aria-hidden="true" class="mt-1 text-sm text-gray-500">Shop now</p>
                                 </div>
@@ -143,7 +143,7 @@
                                     </div>
                                     <a href="#" class="mt-6 block text-sm font-medium text-gray-900">
                                         <span class="absolute z-10 inset-0" aria-hidden="true"></span>
-                                        Carry
+                                        Stationary
                                     </a>
                                     <p aria-hidden="true" class="mt-1 text-sm text-gray-500">Shop now</p>
                                 </div>
@@ -231,7 +231,7 @@
                                                                         <div class="aspect-w-1 aspect-h-1 rounded-md bg-gray-100 overflow-hidden group-hover:opacity-75">
                                                                             <img src="https://tailwindui.com/img/ecommerce-images/mega-menu-category-01.jpg" alt="Models sitting back to back, wearing Basic Tee in black and bone." class="object-center object-cover">
                                                                         </div>
-                                                                        <a href="#" class="mt-4 block font-medium text-gray-900">
+                                                                        <a href="{{route('products')}}" class="mt-4 block font-medium text-gray-900">
                                                                             <span class="absolute z-10 inset-0" aria-hidden="true"></span>
                                                                             New Arrivals
                                                                         </a>
@@ -244,7 +244,7 @@
                                                                         </div>
                                                                         <a href="#" class="mt-4 block font-medium text-gray-900">
                                                                             <span class="absolute z-10 inset-0" aria-hidden="true"></span>
-                                                                            Basic Tees
+                                                                            Productivity
                                                                         </a>
                                                                         <p aria-hidden="true" class="mt-1">Shop now</p>
                                                                     </div>
@@ -266,7 +266,7 @@
                                                                         </div>
                                                                         <a href="#" class="mt-4 block font-medium text-gray-900">
                                                                             <span class="absolute z-10 inset-0" aria-hidden="true"></span>
-                                                                            Carry
+                                                                            Stationary
                                                                         </a>
                                                                         <p aria-hidden="true" class="mt-1">Shop now</p>
                                                                     </div>
@@ -370,7 +370,6 @@
                                         </button>
 
                                         <!-- Search -->
-                                        @guest()
                                         <a href="{{route('login')}}" class="ml-2 p-2 text-white">
                                             <span class="sr-only">Login / Register</span>
                                             <!-- Heroicon name: outline/search -->
@@ -378,7 +377,6 @@
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                                             </svg>
                                         </a>
-                                        @endguest()
                                     </div>
 
                                     <!-- Logo (lg-) -->
@@ -388,17 +386,15 @@
                                     </a>
 
                                     <div class="flex-1 flex items-center justify-end">
-                                        @guest()
                                         <a href="{{route('login')}}">
                                             <x-button class="hidden text-sm font-medium text-white lg:block"> Login / Register </x-button>
                                         </a>
-                                        @endguest()
 
                                         <div class="flex items-center lg:ml-8">
                                             <!-- Cart -->
                                             @auth()
                                                 <div class="ml-4 flow-root lg:ml-8">
-                                                    <a href="{{route('cart')}}" class="group -m-2 p-2 flex items-center">
+                                                    <a href="#" class="group -m-2 p-2 flex items-center">
                                                         <!-- Heroicon name: outline/shopping-bag -->
                                                         <svg class="flex-shrink-0 h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                                                             <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
@@ -418,253 +414,237 @@
             </header>
 
             <div class="relative max-w-3xl mx-auto py-32 px-6 flex flex-col items-center text-center sm:py-64 lg:px-0">
-                <h1 class="text-4xl font-extrabold tracking-tight text-white lg:text-6xl">Our Products</h1>
-                <p class="mt-4 text-xl text-white">High quality products especially picked and crafted for students in mind.</p>
+                <h1 class="text-4xl font-extrabold tracking-tight text-white lg:text-6xl">Shopping Cart</h1>
+                <p class="mt-4 text-xl text-white">Manage everything that you have added to your basket, here.</p>
+{{--                <a href="#" class="mt-8 inline-block bg-white border border-transparent rounded-md py-3 px-8 text-base font-medium text-gray-900 hover:bg-gray-100">Shop for anything</a>--}}
             </div>
         </div>
 
-        <main class="pb-24">
-            <!-- Filters -->
-            <section aria-labelledby="filter-heading" class="relative z-10 border-t border-b border-gray-200 grid items-center" x-data="{filter:false}">
-                <h2 id="filter-heading" class="sr-only">Filters</h2>
-                <div class="relative col-start-1 row-start-1 py-4">
-                    <div class="max-w-7xl mx-auto flex space-x-6 divide-x divide-gray-200 text-sm px-4 sm:px-6 lg:px-8">
-                        <div>
-                            <button @click="filter = true" @click.away="filter = false" type="button" class="group text-gray-700 font-medium flex items-center" aria-controls="disclosure-1" aria-expanded="false">
-                                <!-- Heroicon name: solid/filter -->
-                                <svg class="flex-none w-5 h-5 mr-2 text-gray-400 group-hover:text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd" />
-                                </svg>
-                                Filters
-                            </button>
-                        </div>
-                        <div class="pl-6">
-                            <button type="button" class="text-gray-500">Clear all</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="border-t border-gray-200 py-10" id="disclosure-1" x-show="filter" x-cloak>
-                    <div class="max-w-7xl mx-auto grid grid-cols-2 gap-x-4 px-4 text-sm sm:px-6 md:gap-x-6 lg:px-8">
-                        <div class="grid grid-cols-1 gap-y-10 auto-rows-min md:grid-cols-2 md:gap-x-6">
-                            <fieldset>
-                                <legend class="block font-medium">Price</legend>
-                                <div class="pt-6 space-y-6 sm:pt-4 sm:space-y-4">
-                                    <div class="flex items-center text-base sm:text-sm">
-                                        <input id="price-0" name="price[]" value="0" type="checkbox" class="flex-shrink-0 h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                                        <label for="price-0" class="ml-3 min-w-0 flex-1 text-gray-600"> $0 - $25 </label>
+        <main>
+            <div class="bg-white">
+                <div class="max-w-2xl mx-auto pt-16 pb-24 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+                    <form class="mt-3 lg:grid lg:grid-cols-12 lg:gap-x-12 lg:items-start xl:gap-x-16">
+                        <section aria-labelledby="cart-heading" class="lg:col-span-7">
+                            <h2 id="cart-heading" class="sr-only">Items in your shopping cart</h2>
+
+                            <ul role="list" class="border-t border-b border-gray-200 divide-y divide-gray-200">
+                                <li class="flex py-6 sm:py-10">
+                                    <div class="flex-shrink-0">
+                                        <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-01.jpg" alt="Front of men&#039;s Basic Tee in sienna." class="w-24 h-24 rounded-md object-center object-cover sm:w-48 sm:h-48">
                                     </div>
 
-                                    <div class="flex items-center text-base sm:text-sm">
-                                        <input id="price-1" name="price[]" value="25" type="checkbox" class="flex-shrink-0 h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                                        <label for="price-1" class="ml-3 min-w-0 flex-1 text-gray-600"> $25 - $50 </label>
+                                    <div class="ml-4 flex-1 flex flex-col justify-between sm:ml-6">
+                                        <div class="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
+                                            <div>
+                                                <div class="flex justify-between">
+                                                    <h3 class="text-sm">
+                                                        <a href="#" class="font-medium text-gray-700 hover:text-gray-800"> Basic Tee </a>
+                                                    </h3>
+                                                </div>
+                                                <div class="mt-1 flex text-sm">
+                                                    <p class="text-gray-500">Sienna</p>
+
+                                                    <p class="ml-4 pl-4 border-l border-gray-200 text-gray-500">Large</p>
+                                                </div>
+                                                <p class="mt-1 text-sm font-medium text-gray-900">$32.00</p>
+                                            </div>
+
+                                            <div class="mt-4 sm:mt-0 sm:pr-9">
+                                                <label for="quantity-0" class="sr-only">Quantity, Basic Tee</label>
+                                                <select id="quantity-0" name="quantity-0" class="max-w-full rounded-md border border-gray-300 py-1.5 text-base leading-5 font-medium text-gray-700 text-left shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                </select>
+
+                                                <div class="absolute top-0 right-0">
+                                                    <button type="button" class="-m-2 p-2 inline-flex text-gray-400 hover:text-gray-500">
+                                                        <span class="sr-only">Remove</span>
+                                                        <!-- Heroicon name: solid/x -->
+                                                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <p class="mt-4 flex text-sm text-gray-700 space-x-2">
+                                            <!-- Heroicon name: solid/check -->
+                                            <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                            </svg>
+                                            <span>In stock</span>
+                                        </p>
+                                    </div>
+                                </li>
+
+                                <li class="flex py-6 sm:py-10">
+                                    <div class="flex-shrink-0">
+                                        <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-02.jpg" alt="Front of men&#039;s Basic Tee in black." class="w-24 h-24 rounded-md object-center object-cover sm:w-48 sm:h-48">
                                     </div>
 
-                                    <div class="flex items-center text-base sm:text-sm">
-                                        <input id="price-2" name="price[]" value="50" type="checkbox" class="flex-shrink-0 h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                                        <label for="price-2" class="ml-3 min-w-0 flex-1 text-gray-600"> $50 - $75 </label>
+                                    <div class="ml-4 flex-1 flex flex-col justify-between sm:ml-6">
+                                        <div class="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
+                                            <div>
+                                                <div class="flex justify-between">
+                                                    <h3 class="text-sm">
+                                                        <a href="#" class="font-medium text-gray-700 hover:text-gray-800"> Basic Tee </a>
+                                                    </h3>
+                                                </div>
+                                                <div class="mt-1 flex text-sm">
+                                                    <p class="text-gray-500">Black</p>
+
+                                                    <p class="ml-4 pl-4 border-l border-gray-200 text-gray-500">Large</p>
+                                                </div>
+                                                <p class="mt-1 text-sm font-medium text-gray-900">$32.00</p>
+                                            </div>
+
+                                            <div class="mt-4 sm:mt-0 sm:pr-9">
+                                                <label for="quantity-1" class="sr-only">Quantity, Basic Tee</label>
+                                                <select id="quantity-1" name="quantity-1" class="max-w-full rounded-md border border-gray-300 py-1.5 text-base leading-5 font-medium text-gray-700 text-left shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                </select>
+
+                                                <div class="absolute top-0 right-0">
+                                                    <button type="button" class="-m-2 p-2 inline-flex text-gray-400 hover:text-gray-500">
+                                                        <span class="sr-only">Remove</span>
+                                                        <!-- Heroicon name: solid/x -->
+                                                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <p class="mt-4 flex text-sm text-gray-700 space-x-2">
+                                            <!-- Heroicon name: solid/clock -->
+                                            <svg class="flex-shrink-0 h-5 w-5 text-gray-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+                                            </svg>
+                                            <span>Ships in 3–4 weeks</span>
+                                        </p>
+                                    </div>
+                                </li>
+
+                                <li class="flex py-6 sm:py-10">
+                                    <div class="flex-shrink-0">
+                                        <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-03.jpg" alt="Insulated bottle with white base and black snap lid." class="w-24 h-24 rounded-md object-center object-cover sm:w-48 sm:h-48">
                                     </div>
 
-                                    <div class="flex items-center text-base sm:text-sm">
-                                        <input id="price-3" name="price[]" value="75" type="checkbox" class="flex-shrink-0 h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                                        <label for="price-3" class="ml-3 min-w-0 flex-1 text-gray-600"> $75+ </label>
+                                    <div class="ml-4 flex-1 flex flex-col justify-between sm:ml-6">
+                                        <div class="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
+                                            <div>
+                                                <div class="flex justify-between">
+                                                    <h3 class="text-sm">
+                                                        <a href="#" class="font-medium text-gray-700 hover:text-gray-800"> Nomad Tumbler </a>
+                                                    </h3>
+                                                </div>
+                                                <div class="mt-1 flex text-sm">
+                                                    <p class="text-gray-500">White</p>
+                                                </div>
+                                                <p class="mt-1 text-sm font-medium text-gray-900">$35.00</p>
+                                            </div>
+
+                                            <div class="mt-4 sm:mt-0 sm:pr-9">
+                                                <label for="quantity-2" class="sr-only">Quantity, Nomad Tumbler</label>
+                                                <select id="quantity-2" name="quantity-2" class="max-w-full rounded-md border border-gray-300 py-1.5 text-base leading-5 font-medium text-gray-700 text-left shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                </select>
+
+                                                <div class="absolute top-0 right-0">
+                                                    <button type="button" class="-m-2 p-2 inline-flex text-gray-400 hover:text-gray-500">
+                                                        <span class="sr-only">Remove</span>
+                                                        <!-- Heroicon name: solid/x -->
+                                                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <p class="mt-4 flex text-sm text-gray-700 space-x-2">
+                                            <!-- Heroicon name: solid/check -->
+                                            <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                            </svg>
+                                            <span>In stock</span>
+                                        </p>
                                     </div>
+                                </li>
+                            </ul>
+                        </section>
+
+                        <!-- Order summary -->
+                        <section aria-labelledby="summary-heading" class="mt-16 bg-gray-50 rounded-lg px-4 py-6 sm:p-6 lg:p-8 lg:mt-0 lg:col-span-5">
+                            <h2 id="summary-heading" class="text-lg font-medium text-gray-900">Order summary</h2>
+
+                            <dl class="mt-6 space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <dt class="text-sm text-gray-600">Subtotal</dt>
+                                    <dd class="text-sm font-medium text-gray-900">$99.00</dd>
                                 </div>
-                            </fieldset>
-                            <fieldset>
-                                <legend class="block font-medium">Color</legend>
-                                <div class="pt-6 space-y-6 sm:pt-4 sm:space-y-4">
-                                    <div class="flex items-center text-base sm:text-sm">
-                                        <input id="color-0" name="color[]" value="white" type="checkbox" class="flex-shrink-0 h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                                        <label for="color-0" class="ml-3 min-w-0 flex-1 text-gray-600"> White </label>
-                                    </div>
-
-                                    <div class="flex items-center text-base sm:text-sm">
-                                        <input id="color-1" name="color[]" value="beige" type="checkbox" class="flex-shrink-0 h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                                        <label for="color-1" class="ml-3 min-w-0 flex-1 text-gray-600"> Beige </label>
-                                    </div>
-
-                                    <div class="flex items-center text-base sm:text-sm">
-                                        <input id="color-2" name="color[]" value="blue" type="checkbox" class="flex-shrink-0 h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500" checked>
-                                        <label for="color-2" class="ml-3 min-w-0 flex-1 text-gray-600"> Blue </label>
-                                    </div>
-
-                                    <div class="flex items-center text-base sm:text-sm">
-                                        <input id="color-3" name="color[]" value="brown" type="checkbox" class="flex-shrink-0 h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                                        <label for="color-3" class="ml-3 min-w-0 flex-1 text-gray-600"> Brown </label>
-                                    </div>
-
-                                    <div class="flex items-center text-base sm:text-sm">
-                                        <input id="color-4" name="color[]" value="green" type="checkbox" class="flex-shrink-0 h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                                        <label for="color-4" class="ml-3 min-w-0 flex-1 text-gray-600"> Green </label>
-                                    </div>
-
-                                    <div class="flex items-center text-base sm:text-sm">
-                                        <input id="color-5" name="color[]" value="purple" type="checkbox" class="flex-shrink-0 h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                                        <label for="color-5" class="ml-3 min-w-0 flex-1 text-gray-600"> Purple </label>
-                                    </div>
+                                <div class="border-t border-gray-200 pt-4 flex items-center justify-between">
+                                    <dt class="flex items-center text-sm text-gray-600">
+                                        <span>Shipping estimate</span>
+                                        <a href="#" class="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500">
+                                            <span class="sr-only">Learn more about how shipping is calculated</span>
+                                            <!-- Heroicon name: solid/question-mark-circle -->
+                                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                                            </svg>
+                                        </a>
+                                    </dt>
+                                    <dd class="text-sm font-medium text-gray-900">$5.00</dd>
                                 </div>
-                            </fieldset>
-                        </div>
-                        <div class="grid grid-cols-1 gap-y-10 auto-rows-min md:grid-cols-2 md:gap-x-6">
-                            <fieldset>
-                                <legend class="block font-medium">Size</legend>
-                                <div class="pt-6 space-y-6 sm:pt-4 sm:space-y-4">
-                                    <div class="flex items-center text-base sm:text-sm">
-                                        <input id="size-0" name="size[]" value="xs" type="checkbox" class="flex-shrink-0 h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                                        <label for="size-0" class="ml-3 min-w-0 flex-1 text-gray-600"> XS </label>
-                                    </div>
-
-                                    <div class="flex items-center text-base sm:text-sm">
-                                        <input id="size-1" name="size[]" value="s" type="checkbox" class="flex-shrink-0 h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500" checked>
-                                        <label for="size-1" class="ml-3 min-w-0 flex-1 text-gray-600"> S </label>
-                                    </div>
-
-                                    <div class="flex items-center text-base sm:text-sm">
-                                        <input id="size-2" name="size[]" value="m" type="checkbox" class="flex-shrink-0 h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                                        <label for="size-2" class="ml-3 min-w-0 flex-1 text-gray-600"> M </label>
-                                    </div>
-
-                                    <div class="flex items-center text-base sm:text-sm">
-                                        <input id="size-3" name="size[]" value="l" type="checkbox" class="flex-shrink-0 h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                                        <label for="size-3" class="ml-3 min-w-0 flex-1 text-gray-600"> L </label>
-                                    </div>
-
-                                    <div class="flex items-center text-base sm:text-sm">
-                                        <input id="size-4" name="size[]" value="xl" type="checkbox" class="flex-shrink-0 h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                                        <label for="size-4" class="ml-3 min-w-0 flex-1 text-gray-600"> XL </label>
-                                    </div>
-
-                                    <div class="flex items-center text-base sm:text-sm">
-                                        <input id="size-5" name="size[]" value="2xl" type="checkbox" class="flex-shrink-0 h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                                        <label for="size-5" class="ml-3 min-w-0 flex-1 text-gray-600"> 2XL </label>
-                                    </div>
+                                <div class="border-t border-gray-200 pt-4 flex items-center justify-between">
+                                    <dt class="flex text-sm text-gray-600">
+                                        <span>Tax estimate</span>
+                                        <a href="#" class="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500">
+                                            <span class="sr-only">Learn more about how tax is calculated</span>
+                                            <!-- Heroicon name: solid/question-mark-circle -->
+                                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                                            </svg>
+                                        </a>
+                                    </dt>
+                                    <dd class="text-sm font-medium text-gray-900">$8.32</dd>
                                 </div>
-                            </fieldset>
-                            <fieldset>
-                                <legend class="block font-medium">Category</legend>
-                                <div class="pt-6 space-y-6 sm:pt-4 sm:space-y-4">
-                                    <div class="flex items-center text-base sm:text-sm">
-                                        <input id="category-0" name="category[]" value="all-new-arrivals" type="checkbox" class="flex-shrink-0 h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                                        <label for="category-0" class="ml-3 min-w-0 flex-1 text-gray-600"> All New Arrivals </label>
-                                    </div>
-
-                                    <div class="flex items-center text-base sm:text-sm">
-                                        <input id="category-1" name="category[]" value="tees" type="checkbox" class="flex-shrink-0 h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                                        <label for="category-1" class="ml-3 min-w-0 flex-1 text-gray-600"> Tees </label>
-                                    </div>
-
-                                    <div class="flex items-center text-base sm:text-sm">
-                                        <input id="category-2" name="category[]" value="objects" type="checkbox" class="flex-shrink-0 h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                                        <label for="category-2" class="ml-3 min-w-0 flex-1 text-gray-600"> Objects </label>
-                                    </div>
-
-                                    <div class="flex items-center text-base sm:text-sm">
-                                        <input id="category-3" name="category[]" value="sweatshirts" type="checkbox" class="flex-shrink-0 h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                                        <label for="category-3" class="ml-3 min-w-0 flex-1 text-gray-600"> Sweatshirts </label>
-                                    </div>
-
-                                    <div class="flex items-center text-base sm:text-sm">
-                                        <input id="category-4" name="category[]" value="pants-and-shorts" type="checkbox" class="flex-shrink-0 h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                                        <label for="category-4" class="ml-3 min-w-0 flex-1 text-gray-600"> Pants &amp; Shorts </label>
-                                    </div>
+                                <div class="border-t border-gray-200 pt-4 flex items-center justify-between">
+                                    <dt class="text-base font-medium text-gray-900">Order total</dt>
+                                    <dd class="text-base font-medium text-gray-900">$112.32</dd>
                                 </div>
-                            </fieldset>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-start-1 row-start-1 py-4" x-data="{sort:false}">
-                    <div class="flex justify-end max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div class="relative inline-block">
-                            <div class="flex">
-                                <button @click="sort = true" @click.away="sort = false" type="button" class="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900" id="menu-button" aria-expanded="false" aria-haspopup="true">
-                                    Sort
-                                    <!-- Heroicon name: solid/chevron-down -->
-                                    <svg class="flex-shrink-0 -mr-1 ml-1 h-5 w-5 text-gray-400 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                    </svg>
-                                </button>
+                            </dl>
+
+                            <div class="mt-6">
+                                <button type="submit" class="w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500">Checkout</button>
                             </div>
-
-                            <!--
-                              Dropdown menu, show/hide based on menu state.
-
-                              Entering: "transition ease-out duration-100"
-                                From: "transform opacity-0 scale-95"
-                                To: "transform opacity-100 scale-100"
-                              Leaving: "transition ease-in duration-75"
-                                From: "transform opacity-100 scale-100"
-                                To: "transform opacity-0 scale-95"
-                            -->
-                            <div x-show="sort" x-cloak class="origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-2xl bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
-                                <div class="py-1" role="none">
-                                    <!--
-                                      Active: "bg-gray-100", Not Active: ""
-
-                                      Selected: "font-medium text-gray-900", Not Selected: "text-gray-500"
-                                    -->
-                                    <a href="#" class="font-medium text-gray-900 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0"> Most Popular </a>
-
-                                    <a href="#" class="text-gray-500 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1"> Best Rating </a>
-
-                                    <a href="#" class="text-gray-500 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2"> Newest </a>
-
-                                    <a href="#" class="text-gray-500 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-3"> Price: Low to High </a>
-
-                                    <a href="#" class="text-gray-500 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-4"> Price: High to Low </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        </section>
+                    </form>
                 </div>
-            </section>
-
-            <!-- Product grid -->
-            <section aria-labelledby="products-heading" class="max-w-7xl mx-auto overflow-hidden sm:px-6 lg:px-8">
-                <h2 id="products-heading" class="sr-only">Products</h2>
-
-                <div class="-mx-px border-l border-gray-200 grid grid-cols-4 space-x-6 space-y-6 sm:mx-0 md:grid-cols-4 lg:grid-cols-4">
-
-                    @foreach($products as $p)
-                    <div class="group relative p-4 border-r border-b border-gray-200 sm:p-6">
-                        <div class="rounded-lg overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 group-hover:opacity-75">
-                            <img src="https://tailwindui.com/img/ecommerce-images/category-page-05-image-card-01.jpg" alt="TODO" class="w-full h-full object-center object-cover">
-                        </div>
-                        <div class="pt-10 pb-4 text-center">
-                            <h3 class="text-sm font-medium text-gray-900">
-                                <a href="{{route('product', $p->slug)}}">
-                                    <span aria-hidden="true" class="absolute inset-0"></span>
-                                    {{$p->name}}
-                                </a>
-                            </h3>
-                            @if ($p->Review->count() > 0)
-                            <div class="mt-3 flex flex-col items-center">
-                                <p class="sr-only">{{$p->Review->average('rating')}} out of 5 stars</p>
-                                <div class="flex items-center">
-
-                                    @for ($i = 0; $i < $p->Review->average('rating'); $i++)
-                                        <svg class="text-yellow-400 flex-shrink-0 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                        </svg>
-                                    @endfor
-                                </div>
-                                <p class="mt-1 text-sm text-gray-500">{{$p->Review->count()}} reviews</p>
-                            </div>
-                            @endif
-                            <p class="mt-4 text-base font-medium text-gray-900">£{{$p->price}}</p>
-                        </div>
-                    </div>
-                    @endforeach
-
-                    <!-- More products... -->
-                </div>
-            </section>
-
-            <!-- Pagination -->
-            <nav aria-label="Pagination" class="max-w-7xl mx-auto px-4 mt-6 flex justify-between text-sm font-medium text-gray-700 sm:px-6 lg:px-8">
-                {{$products->links()}}
-            </nav>
+            </div>
         </main>
-
 
     </div>
 </x-guest-layout>
