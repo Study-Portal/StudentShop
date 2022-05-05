@@ -370,6 +370,7 @@
                                         </button>
 
                                         <!-- Search -->
+                                        @guest()
                                         <a href="{{route('login')}}" class="ml-2 p-2 text-white">
                                             <span class="sr-only">Login / Register</span>
                                             <!-- Heroicon name: outline/search -->
@@ -377,6 +378,7 @@
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                                             </svg>
                                         </a>
+                                        @endguest()
                                     </div>
 
                                     <!-- Logo (lg-) -->
@@ -386,9 +388,11 @@
                                     </a>
 
                                     <div class="flex-1 flex items-center justify-end">
+                                        @guest()
                                         <a href="{{route('login')}}">
                                             <x-button class="hidden text-sm font-medium text-white lg:block"> Login / Register </x-button>
                                         </a>
+                                        @endguest
 
                                         <div class="flex items-center lg:ml-8">
                                             <!-- Cart -->
