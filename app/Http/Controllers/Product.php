@@ -17,7 +17,7 @@ class Product extends Controller
     public function prod($slug)
     {
         return view('product', [
-            'prod' => \App\Models\Product::query()->where('products.slug', $slug)->get('*')
+            'prod' => \App\Models\Product::query()->where('products.slug', $slug)->first()
         ]);
     }
 }

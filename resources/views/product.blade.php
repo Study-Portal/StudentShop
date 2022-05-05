@@ -419,8 +419,8 @@
                 <div class="lg:grid lg:grid-cols-12 lg:auto-rows-min lg:gap-x-8">
                     <div class="lg:col-start-8 lg:col-span-5">
                         <div class="flex justify-between">
-                            <h1 class="text-xl font-medium text-gray-900">{{$prod}}</h1>
-                            <p class="text-xl font-medium text-gray-900">£2</p>
+                            <h1 class="text-xl font-medium text-gray-900">{{$prod->name}}</h1>
+                            <p class="text-xl font-medium text-gray-900">£{{$prod->price}}</p>
                         </div>
                         <!-- Reviews -->
                         <div class="mt-4">
@@ -484,6 +484,7 @@
                     <div class="mt-8 lg:col-span-5">
                         <form>
                             <!-- Color picker -->
+                            @if($prod->colour != null)
                             <div>
                                 <h2 class="text-sm font-medium text-gray-900">Color</h2>
 
@@ -512,12 +513,14 @@
                                     </div>
                                 </fieldset>
                             </div>
+                            @endif
 
                             <!-- Size picker -->
+                            @if ($prod->size != null)
                             <div class="mt-8">
                                 <div class="flex items-center justify-between">
                                     <h2 class="text-sm font-medium text-gray-900">Size</h2>
-                                    <a href="#" class="text-sm font-medium text-indigo-600 hover:text-indigo-500">See sizing chart</a>
+{{--                                    <a href="#" class="text-sm font-medium text-indigo-600 hover:text-indigo-500">See sizing chart</a>--}}
                                 </div>
 
                                 <fieldset class="mt-2">
@@ -585,6 +588,7 @@
                                     </div>
                                 </fieldset>
                             </div>
+                            @endif
 
                             <button type="submit" class="mt-8 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Add to cart</button>
                         </form>
@@ -594,8 +598,7 @@
                             <h2 class="text-sm font-medium text-gray-900">Description</h2>
 
                             <div class="mt-4 prose prose-sm text-gray-500">
-                                <p>The Basic tee is an honest new take on a classic. The tee uses super soft, pre-shrunk cotton for true comfort and a dependable fit. They are hand cut and sewn locally, with a special dye technique that gives each tee it's own look.</p>
-                                <p>Looking to stock your closet? The Basic tee also comes in a 3-pack or 5-pack at a bundle discount.</p>
+                                <p>{{$prod->description}}</p>
                             </div>
                         </div>
 
