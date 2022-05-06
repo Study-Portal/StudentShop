@@ -403,7 +403,7 @@
                                                         <svg class="flex-shrink-0 h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                                                             <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                                                         </svg>
-                                                        <span class="ml-2 text-sm font-medium text-white">0</span>
+                                                        <span class="ml-2 text-sm font-medium text-white">{{\Illuminate\Support\Facades\Auth::user()->Cart()->count()}}</span>
                                                         <span class="sr-only">items in cart, view bag</span>
                                                     </a>
                                                 </div>
