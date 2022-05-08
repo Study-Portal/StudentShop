@@ -22,6 +22,7 @@ return new class extends Migration
             $table->text('size')->nullable(true);
             $table->integer('price');
             $table->text('slug');
+            $table->text('stripe')->nullable(true)->unique();
             $table->integer('category_id');
             $table->timestamps();
         });
