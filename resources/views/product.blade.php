@@ -471,7 +471,8 @@
                     </div>
 
                     <div class="mt-8 lg:col-span-5">
-                        <form>
+                        <form method="post" action="{{route('cart.add', $prod->slug)}}">
+                            @csrf
                             <!-- Color picker -->
                             @if($prod->colour != null)
                             <div>

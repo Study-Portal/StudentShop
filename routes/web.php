@@ -39,4 +39,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+
+
+Route::post('/cart/{slug}/add', [Cart::class, 'add'])
+    ->middleware('auth')
+    ->name('cart.add');
+
 require __DIR__.'/auth.php';
