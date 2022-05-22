@@ -39,6 +39,9 @@ Route::get('/education', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+Route::get('/orders', [\App\Http\Controllers\Order::class, 'view'])
+    ->middleware('auth')
+    ->name('orders');
 
 
 
