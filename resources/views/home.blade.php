@@ -153,11 +153,11 @@
 
                     <div class="border-t border-gray-200 py-6 px-4 space-y-6">
                         <div class="flow-root">
-                            <a href="#" class="-m-2 p-2 block font-medium text-gray-900">Support</a>
+                            <a href="{{route('support')}}" class="-m-2 p-2 block font-medium text-gray-900">Support</a>
                         </div>
 
                         <div class="flow-root">
-                            <a href="#" class="-m-2 p-2 block font-medium text-gray-900">About</a>
+                            <a href="{{route('about')}}" class="-m-2 p-2 block font-medium text-gray-900">About</a>
                         </div>
                     </div>
 
@@ -351,9 +351,9 @@
                                                     </div>
                                                 </div>
 
-                                                <a href="#" class="flex items-center text-sm font-medium text-white">Support</a>
+                                                <a href="{{route('support')}}" class="flex items-center text-sm font-medium text-white">Support</a>
 
-                                                <a href="#" class="flex items-center text-sm font-medium text-white">About</a>
+                                                <a href="{{route('about')}}" class="flex items-center text-sm font-medium text-white">About</a>
                                             </div>
                                         </div>
                                     </div>
