@@ -18,23 +18,24 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 })->name('home');
-
+Route::get('/support', function () {
+    return view('support');
+})->name('support');
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
 Route::get('/products', [Product::class, 'all'])
     ->middleware('web')
     ->name('products');
-
 Route::get('/product/{slug}', [Product::class, 'prod'])
     ->middleware('web')
     ->name('product');
-
 Route::get('/cart', [Cart::class, 'view'])
     ->middleware('auth')
     ->name('cart');
-
 Route::get('/education', function () {
     return view('education');
 })->name('education');
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
