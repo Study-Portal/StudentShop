@@ -62,7 +62,7 @@
                                         </div>
                                     </td>
                                     <td class="hidden py-6 pr-8 sm:table-cell">${{$p->price}}</td>
-                                    <td class="hidden py-6 pr-8 sm:table-cell">Delivered Jan 25, 2021</td>
+                                    <td class="hidden py-6 pr-8 sm:table-cell">{{$o->status}}</td>
                                     <td class="py-6 font-medium text-right whitespace-nowrap">
                                         <a href="{{route('product', $p->slug)}}" class="text-indigo-600">View<span class="hidden lg:inline"> Product</span><span class="sr-only">, Machined Pen and Pencil Set</span></a>
                                     </td>
