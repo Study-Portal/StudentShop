@@ -386,9 +386,11 @@
                                     </a>
 
                                     <div class="flex-1 flex items-center justify-end">
+                                        @guest()
                                         <a href="{{route('login')}}">
                                             <x-button class="hidden text-sm font-medium text-white lg:block"> Login / Register </x-button>
                                         </a>
+                                        @endguest
 
                                         <div class="flex items-center lg:ml-8">
                                             <!-- Cart -->
